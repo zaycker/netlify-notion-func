@@ -1,9 +1,11 @@
-import type { Context } from '@netlify/edge-functions'
+import type { Config, Context } from '@netlify/edge-functions'
+
+const notionDatabaseId = Netlify.env.get('NOTION_DATABASE_ID')
+const notionApiKey = Netlify.env.get('NOTION_API_KEY')
+const thisApiPath = Netlify.env.get('REACT_APP_LEADS_API_URL')
 
 export default async (req: Request, context: Context) => {
   const { email, referrer } = await req.json()
-  const notionDatabaseId = Netlify.env.get('NOTION_DATABASE_ID')
-  const notionApiKey = Netlify.env.get('NOTION_API_KEY')
 
   const response = await fetch('https://api.notion.com/v1/pages', {
     method: 'POST',
@@ -32,3 +34,5 @@ export default async (req: Request, context: Context) => {
 
   return new Response(JSON.stringify({ status: 'success' }))
 }
+
+export const config: Config = { path: thisApiPath, method: ['POST'] }

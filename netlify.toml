@@ -1,3 +1,0 @@
-[[edge_functions]]
-    function = "leads"
-    path = "/api/leads/collect"
