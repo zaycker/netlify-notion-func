@@ -1,0 +1,15 @@
+{
+  "name": "netlify-notion-func",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "BROWSER=none netlify dev --edge-inspect",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@netlify/edge-functions": "^2.2.0"
+  }
+}
